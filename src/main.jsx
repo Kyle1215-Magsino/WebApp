@@ -17,5 +17,5 @@ createRoot(document.getElementById("root")).render(
         <Route path="/order" element={<Order />} />
       </Routes>
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode> 
 );

@@ -1,15 +1,24 @@
 import React from "react";
 
 const PrimaryButton = ({ label, onClick, type = "primary" }) => {
-  const base =
-    "px-6 py-3 font-semibold rounded-full shadow-md transition-transform duration-300 hover:scale-105";
-  const styles =
-    type === "primary"
-      ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white"
-      : "bg-white text-indigo-600 border border-indigo-600 hover:bg-indigo-50";
+  let styles = "";
+
+  if (type === "primary") {
+    styles =
+      "bg-red-600 text-white hover:bg-red-700";
+  } else if (type === "secondary") {
+    styles =
+      "border border-red-600 text-red-600 hover:bg-red-600 hover:text-white";
+  } else {
+    styles =
+      "bg-gray-700 text-white hover:bg-gray-800";
+  }
 
   return (
-    <button onClick={onClick} className={`${base} ${styles}`}>
+    <button
+      onClick={onClick}
+      className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${styles}`}
+    >
       {label}
     </button>
   );

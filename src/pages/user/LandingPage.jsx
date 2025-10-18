@@ -4,137 +4,140 @@ import Navbar from "../../components/navbar";
 import PrimaryButton from "../../components/primarybutton";
 import CarCard from "../../components/car";
 
+import laferrari from "../../assets/cars/laferrari.jpg";
+import portofino from "../../assets/cars/portofino.jpg";
+import roma from "../../assets/cars/roma.jpg";
+import ferrari812 from "../../assets/cars/812.jpg";
+import sf90 from "../../assets/cars/sf90.jpg";
+import f8 from "../../assets/cars/f8.jpg";
+
 const LandingPage = () => {
   const navigate = useNavigate();
 
-  // Navigation functions
-  const handleExplore = () => {
-    navigate("/listing");
-  };
+  const handleExplore = () => navigate("/listing");
+  const handleOrder = () => navigate("/listing");
 
-  const handleOrder = () => {
-    navigate("/order");
-  };
-
-  // Example car data (can be replaced later with API or DB)
   const cars = [
     {
       id: 1,
-      name: "Tesla Model S",
-      image:
-        "https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
-      price: "$89,990",
-      description: "Electric performance sedan with unmatched range and luxury.",
+      name: "Ferrari LaFerrari",
+      image: laferrari,
+      price: "₱72,000,000",
+      description:
+        "The ultimate expression of Ferrari’s engineering — a hybrid hypercar with 950 horsepower.",
     },
     {
       id: 2,
-      name: "BMW M4",
-      image:
-        "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
-      price: "$77,695",
+      name: "Ferrari SF90 Stradale",
+      image: sf90,
+      price: "₱38,000,000",
       description:
-        "A perfect mix of sportiness, power, and everyday comfort.",
+        "Ferrari’s first plug-in hybrid supercar delivering electrifying 986 horsepower.",
     },
     {
       id: 3,
-      name: "Audi Q7",
-      image:
-        "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
-      price: "$59,200",
-      description: "Luxury family SUV with advanced technology and space.",
+      name: "Ferrari F8 Tributo",
+      image: f8,
+      price: "₱26,000,000",
+      description:
+        "A 710-horsepower V8 masterpiece — pure Ferrari performance and precision.",
+    },
+    {
+      id: 4,
+      name: "Ferrari Roma",
+      image: roma,
+      price: "₱22,000,000",
+      description:
+        "Modern luxury meets classic elegance — a grand tourer for every occasion.",
+    },
+    {
+      id: 5,
+      name: "Ferrari Portofino M",
+      image: portofino,
+      price: "₱20,000,000",
+      description:
+        "An open-top masterpiece that blends comfort, speed, and timeless style.",
+    },
+    {
+      id: 6,
+      name: "Ferrari 812 Superfast",
+      image: ferrari812,
+      price: "₱36,000,000",
+      description:
+        "The ultimate V12 grand tourer with unmatched acceleration and control.",
     },
   ];
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen w-full">
+    <div className="bg-gradient-to-b from-black via-gray-900 to-gray-800 min-h-screen text-white">
       <Navbar />
 
-      {/* Hero Section */}
       <section className="pt-32 flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-20 xl:px-32 pb-24 gap-12">
         <div className="w-full md:w-1/2">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
-            Find Your{" "}
-            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Dream Car
-            </span>{" "}
-            Today
+          <h2 className="text-6xl font-extrabold text-red-600 mb-6 leading-tight">
+            Experience the Power of <span className="text-white">Ferrari</span>
           </h2>
 
-          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-            Discover the perfect car that matches your lifestyle. From sporty
-            coupes to family SUVs, explore our premium collection of modern and
-            reliable vehicles built for performance and comfort.
+          <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+            Discover the perfect combination of design, speed, and Italian
+            craftsmanship. Explore our full Ferrari lineup today.
           </p>
 
           <div className="flex flex-wrap gap-4">
             <PrimaryButton
               label="Explore Cars →"
               onClick={handleExplore}
-              type="secondary"
+              type="primary"
             />
             <PrimaryButton
               label="Order Now →"
               onClick={handleOrder}
-              type="primary"
+              type="secondary"
             />
           </div>
         </div>
 
-        {/* Hero Image */}
         <div className="w-full md:w-1/2">
           <img
-            src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750"
-            alt="Luxury car"
+            src={laferrari}
+            alt="Ferrari Hero"
             className="rounded-3xl shadow-2xl w-full hover:scale-105 transition-transform duration-500"
           />
         </div>
       </section>
 
-      {/* Featured Cars Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="px-6 md:px-12 lg:px-20 xl:px-32">
           <div className="text-center mb-16">
-            <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Featured Cars
+            <h3 className="text-5xl font-bold text-red-600 mb-4">
+              Ferrari Collection
             </h3>
-            <p className="text-gray-600 text-lg">
-              Discover our most popular vehicles handpicked for you.
+            <p className="text-gray-400 text-lg">
+              Discover our most powerful, luxurious, and breathtaking models.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {cars.map((car) => (
-              <CarCard
+              <div
                 key={car.id}
-                image={car.image}
-                name={car.name}
-                price={car.price}
-                description={car.description}
-                onClick={handleExplore}
-              />
+                className="bg-gradient-to-b from-gray-800 to-black rounded-3xl p-6 shadow-lg hover:shadow-red-600/40 hover:-translate-y-2 transform transition-all duration-500"
+              >
+                <CarCard
+                  image={car.image}
+                  name={car.name}
+                  price={car.price}
+                  description={car.description}
+                  onClick={handleExplore}
+                />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 text-white text-center py-20 px-6 md:px-12">
-        <h3 className="text-4xl md:text-5xl font-bold mb-6">
-          Ready to Hit the Road?
-        </h3>
-        <p className="mb-10 text-lg text-indigo-100">
-          Explore our latest car models and make your next journey unforgettable.
-        </p>
-        <PrimaryButton
-          label="Explore Cars"
-          onClick={handleExplore}
-          type="secondary"
-        />
-      </section>
-
-      {/* Footer */}
-      <footer className="w-full bg-gray-900 text-gray-400 text-center py-8">
-        <p className="text-sm">© 2025 AutoHub Motors. All rights reserved.</p>
+      <footer className="w-full bg-gradient-to-r from-gray-900 to-red-800 text-gray-300 text-center py-8">
+        <p className="text-sm">© 2025 AutoHub Motors — Ferrari Edition.</p>
       </footer>
     </div>
   );
