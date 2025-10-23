@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar";
 import PrimaryButton from "../../components/primarybutton";
 import CarCard from "../../components/car";
+import ModalPanel from "../../components/ModalPanel";
 
 import laferrari from "../../assets/cars/laferrari.jpg";
 import portofino from "../../assets/cars/portofino.jpg";
@@ -69,73 +70,88 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-black via-gray-900 to-gray-800 min-h-screen text-white">
+    <div className="bg-gradient-to-b from-black via-gray-900 to-gray-800 min-h-screen text-white flex flex-col relative">
+      {/* ✅ Navbar — top on desktop, bottom on mobile */}
       <Navbar />
 
-      <section className="pt-32 flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-20 xl:px-32 pb-24 gap-12">
-        <div className="w-full md:w-1/2">
-          <h2 className="text-6xl font-extrabold text-red-600 mb-6 leading-tight">
-            Experience the Power of <span className="text-white">Ferrari</span>
-          </h2>
+      {/* ✅ Main Content */}
+      <main className="flex-1 pt-28 md:pt-40 pb-24 md:pb-12">
+        {/* Hero Section */}
+        <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-20 xl:px-32 gap-12">
+          {/* Left Content */}
+          <div className="w-full md:w-1/2">
+            <h2 className="text-5xl md:text-6xl font-extrabold text-red-600 mb-6 leading-tight">
+              Experience the Power of <span className="text-white">Ferrari</span>
+            </h2>
 
-          <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-            Discover the perfect combination of design, speed, and Italian
-            craftsmanship. Explore our full Ferrari lineup today.
-          </p>
-
-          <div className="flex flex-wrap gap-4">
-            <PrimaryButton
-              label="Explore Cars →"
-              onClick={handleExplore}
-              type="primary"
-            />
-            <PrimaryButton
-              label="Order Now →"
-              onClick={handleOrder}
-              type="secondary"
-            />
-          </div>
-        </div>
-
-        <div className="w-full md:w-1/2">
-          <img
-            src={laferrari}
-            alt="Ferrari Hero"
-            className="rounded-3xl shadow-2xl w-full hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-      </section>
-
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
-        <div className="px-6 md:px-12 lg:px-20 xl:px-32">
-          <div className="text-center mb-16">
-            <h3 className="text-5xl font-bold text-red-600 mb-4">
-              Ferrari Collection
-            </h3>
-            <p className="text-gray-400 text-lg">
-              Discover our most powerful, luxurious, and breathtaking models.
+            <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+              Discover the perfect combination of design, speed, and Italian
+              craftsmanship. Explore our full Ferrari lineup today.
             </p>
+
+            {/* Buttons */}
+            <div className="flex flex-wrap gap-4 mb-6">
+              <PrimaryButton
+                label="Explore Cars →"
+                onClick={handleExplore}
+                type="primary"
+              />
+              <PrimaryButton
+                label="Order Now →"
+                onClick={handleOrder}
+                type="secondary"
+              />
+            </div>
+
+            {/* ✅ Modal Button stays in hero section */}
+            <div className="mt-4">
+              <ModalPanel />
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {cars.map((car) => (
-              <div
-                key={car.id}
-                className="bg-gradient-to-b from-gray-800 to-black rounded-3xl p-6 shadow-lg hover:shadow-red-600/40 hover:-translate-y-2 transform transition-all duration-500"
-              >
-                <CarCard
-                  image={car.image}
-                  name={car.name}
-                  price={car.price}
-                  description={car.description}
-                  onClick={handleExplore}
-                />
-              </div>
-            ))}
+          {/* Right Image */}
+          <div className="w-full md:w-1/2">
+            <img
+              src={laferrari}
+              alt="Ferrari Hero"
+              className="rounded-3xl shadow-2xl w-full hover:scale-105 transition-transform duration-500"
+            />
           </div>
-        </div>
-      </section>
+        </section>
 
+        {/* Ferrari Collection */}
+        <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+          <div className="px-6 md:px-12 lg:px-20 xl:px-32">
+            <div className="text-center mb-16">
+              <h3 className="text-5xl font-bold text-red-600 mb-4">
+                Ferrari Collection
+              </h3>
+              <p className="text-gray-400 text-lg">
+                Discover our most powerful, luxurious, and breathtaking models.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {cars.map((car) => (
+                <div
+                  key={car.id}
+                  className="bg-gradient-to-b from-gray-800 to-black rounded-3xl p-6 shadow-lg hover:shadow-red-600/40 hover:-translate-y-2 transform transition-all duration-500"
+                >
+                  <CarCard
+                    image={car.image}
+                    name={car.name}
+                    price={car.price}
+                    description={car.description}
+                    onClick={handleExplore}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
       <footer className="w-full bg-gradient-to-r from-gray-900 to-red-800 text-gray-300 text-center py-8">
         <p className="text-sm">© 2025 AutoHub Motors — Ferrari Edition.</p>
       </footer>
