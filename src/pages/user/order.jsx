@@ -11,7 +11,7 @@ const Order = () => {
   // Handle form submission
   const handleOrderSubmit = (e) => {
     e.preventDefault();
-    navigate("/listing"); // Redirect after placing an order
+    navigate("/listing"); 
   };
 
   return (
